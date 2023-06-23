@@ -1,0 +1,39 @@
+.list {
+  width: 100%;
+  margin-top: 10px;
+
+  .list-title {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 50px;
+  }
+  .wrapper {
+    position: relative;
+
+    .arrow {
+      width: 50px;
+      height: 100%;
+      background-color: rgb(22, 22, 22, 0.5);
+      color: white;
+      position: absolute;
+      top: 0%;
+      cursor: pointer;
+      z-index: 5;
+
+      &.left {
+        left: 0;
+      }
+      &.right {
+        right: 0;
+      }
+    }
+    .container {
+      margin-left: 50px;
+      margin-top: 10px;
+      display: flex;
+      width: max-content;
+      transition: all cubic-bezier(0.18, 0.89, 0.32, 1.28) 0.4s;
+    }
+  }
+}

@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import Register from "./Pages/Register/Register";
+import Home from "./Pages/Home/Home";
+import Watch from "./Pages/Watch/Watch";
+import { createBrowserRouter } from "react-router-dom";
+import Login from "./Pages/Login/Login";
+import { isAuth, isNotAuth } from "./isAuth";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const Router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    loader: isAuth,
+  },
+  {
+    path: "/watch",
+    element: <Watch />,
+    loader: isAuth,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+    loader: isNotAuth,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+    loader: isNotAuth,
+  },
+]);
 
-export default App;
+export default Router;
